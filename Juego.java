@@ -66,15 +66,20 @@ public class Juego {
      * total votos emitidos
      */
     public int getVotos() {
-
-        return 0;
+        int votos = 0;
+        for(int i = 0; i < valoraciones.length; i++){
+            votos += valoraciones[i];
+        }
+        return votos;
     }
 
     /**
      *  obtener valoración media
      */
     public double getValoracionMedia() {
-
+        int media = 0;
+        
+        media /= 
         return 0;
     }
 
