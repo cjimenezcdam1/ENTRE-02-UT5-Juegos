@@ -89,7 +89,7 @@ public class Juego {
      *  Un usuario puntúa el juego con un valor entre 1 y 10 
      */
     public void puntuar(int puntuacion) {
-
+        valoraciones[puntuacion - 1]++;
     }
 
     /**
@@ -101,7 +101,6 @@ public class Juego {
         "| Lanzamiento: " + this.year +
         "\nValoración (" + getVotos() + " votos): "
         + String.format("%.2f", this.getValoracionMedia());
-
     }
 
     public static void main(String[] args) {
