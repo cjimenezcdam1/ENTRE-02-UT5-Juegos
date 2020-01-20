@@ -1,7 +1,7 @@
 /**
 * Un objeto de esta clase guarda información relativa a un juego
 * 
-* @author -
+* @author Christian Jiménez Cuesta 
 */
 public class Juego {
 	private static final String SEPARADOR = ":";

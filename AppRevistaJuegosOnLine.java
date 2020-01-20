@@ -1,7 +1,7 @@
 /**
  * Punto de entrada a la aplicación
  * 
- * @author - 
+ * @author Christian Jiménez Cuesta  
  */
 public class AppRevistaJuegosOnLine 
 {
