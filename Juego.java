@@ -26,11 +26,11 @@ public class Juego {
         lineaParseada[1] = lineaParseada[1].toUpperCase();
         genero = Genero.valueOf(lineaParseada[1]);
         //Se asigna el año
-        year = Integer.valueOf(lineaParseada[2]);
+        year = Integer.parseInt(lineaParseada[2]);
         //Se asignan las valoraciones
         valoraciones = new int[10];
         for(int i = 0; i < valoraciones.length; i++){
-            valoraciones[i] = Integer.valueOf(lineaParseada[i + 3]);
+            valoraciones[i] = Integer.parseInt(lineaParseada[i + 3]);
         }
     }
     
