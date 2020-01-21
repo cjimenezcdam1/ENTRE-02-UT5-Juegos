@@ -47,11 +47,11 @@ public class RevistaOnLineJuegos
      */
     public void add(Juego juego) {
         if(estaCompleta()){
-            System.out.print("No se ha podido añadir el juego " + juego.getTitulo()
-                                + "\nError: La lista ya está completa");
+            System.out.print("\nNo se ha podido añadir el juego " + juego.getTitulo()
+                                + "  pues la lista ya está completa");
         }else if(existeJuego(juego.getTitulo()) >= 0){
-            System.out.print("No se ha podido añadir el juego " + juego.getTitulo()
-                                + "\nError: Ya existe un juego con el mismo título");
+            System.out.print("\nYa está publicado el juego " + juego.getTitulo()
+                        + " en la revista on-line");
         }else{
             //Comprobamos la posición donde debería ir el juego
             int posicion = calcularPosicionTitulo(juego.getTitulo());
@@ -95,10 +95,13 @@ public class RevistaOnLineJuegos
      * (Ver resultados de ejecución)
      */
     public String toString() {
-
-        
-        return "";
-
+        StringBuilder sb = new StringBuilder();
+        sb.append("Los mejores juegos en nuestra revista " + nombre
+                    + " (" + total + " juegos)\n");
+        for(int i = 0; i < total; i++){
+            sb.append("\n" + juegos[i].toString() + "\n--------------------");
+        }
+        return sb.toString();
     }
 
     /**
@@ -110,6 +113,7 @@ public class RevistaOnLineJuegos
     public void puntuar(String titulo, int puntuacion) {
 
     }
+    
     /**
      * Devuelve un array con los nombres de los juegos 
      * con una valoración media mayor a la indicada  
@@ -143,15 +147,12 @@ public class RevistaOnLineJuegos
             while (sc.hasNextLine()) {
                 Juego juego = new Juego(sc.nextLine());
                 this.add(juego);
-
             }
-
         } catch (IOException e) {
             System.out.println("Error al leer del fichero");
         } finally {
             sc.close();
         }
-
     }
 
 }
