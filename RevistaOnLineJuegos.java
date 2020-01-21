@@ -144,9 +144,27 @@ public class RevistaOnLineJuegos
      * el nº de juegos borradas
      */
     public int borrarDeGenero(Genero genero) {
-
-        return 0;
+        int juegosBorrados = 0;
+        int i = 0;
+        while(i < total){
+            if(genero == juegos[i].getGenero()){
+                borrarJuego(i);
+                juegosBorrados++;
+            }else{
+                 i++;
+            }
+        }
+        return juegosBorrados;
     }
+
+    /**
+     * Borra un juego de una posicion, y ajusta el array
+     */
+    private void borrarJuego(int posicion) {
+        System.arraycopy(juegos, posicion + 1, juegos, posicion, total - posicion - 1);
+        total--;
+    }
+
     /**
      * Lee de un fichero de texto los datos de los juegos
      * con ayuda de un objeto de la  clase Scanner
