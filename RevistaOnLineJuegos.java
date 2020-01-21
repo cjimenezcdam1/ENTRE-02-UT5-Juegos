@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.Arrays;
 
 /**
  * La clase representa a una tienda on-line en la
@@ -22,7 +23,7 @@ public class RevistaOnLineJuegos
      * e inicializa el resto de atributos
      */
     public RevistaOnLineJuegos(String nombre, int n) {
-        this.nombre = nombre;
+        this.nombre = nombre.toUpperCase();
         juegos = new Juego[n];
         total = 0;
     }
@@ -114,12 +115,10 @@ public class RevistaOnLineJuegos
         titulo = titulo.toUpperCase();
         int posicion = existeJuego(titulo);
         if(posicion == -1){
-            System.out.println("Puntuando..." + 
-                                "\nNo existe el juego " + titulo + "\n");
+            System.out.println("No existe el juego " + titulo + "\n");
         }else{
             juegos[posicion].puntuar(puntuacion);
         }
-        System.out.println("Después de puntuar la revista queda\n");
     }
     
     /**
@@ -129,10 +128,15 @@ public class RevistaOnLineJuegos
      * El array se devuelve todo en mayúsculas y ordenado ascendentemente
      */
     public String[] valoracionMayorQue(double valoracion) {
-
-        
-        return null;
-
+        String[] arrayValoracion = new String[total];
+        int cantidadJuegos = 0;
+        for(int i = 0; i < total; i++){
+            if(juegos[i].getValoracionMedia() > valoracion){
+                arrayValoracion[cantidadJuegos] = juegos[i].getTitulo();
+                cantidadJuegos++;
+            }
+        }
+        return Arrays.copyOf(arrayValoracion, cantidadJuegos);
     }
 
     /**
