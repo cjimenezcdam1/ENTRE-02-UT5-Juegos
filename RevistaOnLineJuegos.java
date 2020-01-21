@@ -53,7 +53,8 @@ public class RevistaOnLineJuegos
             System.out.print("No se ha podido añador el juego " + juego.getTitulo()
                                 + "\nError: Ya existe un juego con el mismo título");
         }else{
-            
+            juegos[total] = juego;
+            total++;
         }
     }
      
@@ -63,11 +64,12 @@ public class RevistaOnLineJuegos
      * Si existe el juego devuelve su posición, si no existe devuelve -1
      */
     public int existeJuego(String titulo) {
-        int resultado = -1;
         for(int i = 0; i < total; i++){
-            titulo.equalsIgnoreCase(juegos[i].getTitulo());
+            if(titulo.equalsIgnoreCase(juegos[i].getTitulo())){
+                return i;
+            }
         }
-        return resultado;
+        return -1;
     }
     
     /**
