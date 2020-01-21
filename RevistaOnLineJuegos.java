@@ -111,7 +111,15 @@ public class RevistaOnLineJuegos
      *  Si el juego no existe se muestra un mensaje en pantalla
      */
     public void puntuar(String titulo, int puntuacion) {
-
+        titulo = titulo.toUpperCase();
+        int posicion = existeJuego(titulo);
+        if(posicion == -1){
+            System.out.println("Puntuando..." + 
+                                "\nNo existe el juego " + titulo + "\n");
+        }else{
+            juegos[posicion].puntuar(puntuacion);
+        }
+        System.out.println("Después de puntuar la revista queda\n");
     }
     
     /**
