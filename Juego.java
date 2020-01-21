@@ -111,6 +111,5 @@ public class Juego {
         Juego juego2 = new Juego(
                 "For the King: estrategia: 2018  : 0:0:0:7: 12: 0:33:13:2: 0");
         System.out.println(juego2.toString());
-
     }
 }
