@@ -96,7 +96,7 @@ public class RevistaOnLineJuegos
      */
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Los mejores juegos en nuestra revista " + nombre
+        sb.append("\nLos mejores juegos en nuestra revista " + nombre
                     + " (" + total + " juegos)\n");
         for(int i = 0; i < total; i++){
             sb.append("\n" + juegos[i].toString() + "\n--------------------");
