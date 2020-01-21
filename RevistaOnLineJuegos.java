@@ -47,17 +47,33 @@ public class RevistaOnLineJuegos
      */
     public void add(Juego juego) {
         if(estaCompleta()){
-            System.out.print("No se ha podido añador el juego " + juego.getTitulo()
+            System.out.print("No se ha podido añadir el juego " + juego.getTitulo()
                                 + "\nError: La lista ya está completa");
         }else if(existeJuego(juego.getTitulo()) >= 0){
-            System.out.print("No se ha podido añador el juego " + juego.getTitulo()
+            System.out.print("No se ha podido añadir el juego " + juego.getTitulo()
                                 + "\nError: Ya existe un juego con el mismo título");
         }else{
-            juegos[total] = juego;
+            //Comprobamos la posición donde debería ir el juego
+            int posicion = calcularPosicionTitulo(juego.getTitulo());
+            //Insertamos el juego
+            System.arraycopy(juegos, posicion, juegos, posicion + 1, total - posicion);
+            juegos[posicion] = juego;
             total++;
         }
     }
-     
+
+    /**
+     * Devuelve la posición en la que debería ir un título dentro del array juegos
+     */
+    private int calcularPosicionTitulo(String titulo) {
+        for(int i = 0; i < total; i++){
+            if(juegos[i].getTitulo().compareTo(titulo) > 0){
+                return i;
+            }
+        }
+        return total;
+    }
+
     /**
      * Efectúa una búsqueda en el array del juego cuyo titulo se
      * recibe como parámetro. Es indiferente mayúsculas y minúsculas
